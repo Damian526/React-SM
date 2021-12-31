@@ -2,9 +2,9 @@ import icon from './icons/favicon.ico'
 
 const Picture = () => {
     return (
-        <h1>
+        <div>
             <img src='./favicon.ico' height = {200} width= {200} alt = 'Loading....'/>
-        </h1>
+        </div>
     )
 }
 

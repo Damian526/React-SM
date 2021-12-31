@@ -5,18 +5,24 @@ import Picture from './Picture'
 import './Button'
 
 const LikePost = () => {
-    alert('Liked')
+    var Post_liked = Post.liked = true
+    console.log("Liked")
+    return(Post_liked)
 }
+
 const AlreadyLiked = () => {
     console.log("Already liked")
 }
 
-let Post = (props) => {    
+var Post = (props) => {
     return (
         <header className='header'>
             <Picture />
-            <Button className='btn' text='Like' func={props.liked === false ? LikePost : "Hello"} />
-            <text style = {Stylez.caption}>{props.caption}</text>
+            <h2>
+                <Button className='btn' text='Like' onClick={props.liked === false ? LikePost : AlreadyLiked} />
+                <text style = {Stylez.caption}>{props.caption}</text>
+            </h2>
+            <h3>Posted by {props.user}</h3>
         </header>
     )
 }
