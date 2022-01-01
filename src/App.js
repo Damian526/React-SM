@@ -12,7 +12,7 @@ export var setName = (name, v) => {
 }
 */
 
-let username = null
+export var username = "Hello"
 
 
 
@@ -32,9 +32,11 @@ function App() {
         <h3>
           <div>Enter your name: </div>
           <input type="text" style={Stylez.textbox} id="name_setter" />
-          <Button text='Set Name' onClick={() => GC.setName(GC.textField(document.getElementById("name_setter")), username)} />
+          <Button text='Set Name' onClick={() => GC.setText(username, GC.textField(document.getElementById("name_setter")))} />
         </h3>
-        <text id="posting_as" >Posting as</text>
+        <h3 id="posting_as" >
+          Posting as: {" "} <div id="posterName"></div>
+        </h3>
         <h2>
           <input type="file" id="btn" />
           <Button text='Submit' />
@@ -55,9 +57,15 @@ export const Stylez = {
   "like": { color: 'red' },
   "unlike": { color: 'white' },
   "textbox": { height: '20px' },
-  "chatbox": {color: 'black', backgroundColor: '#fff'}
+  "chatbox": { color: 'black', backgroundColor: '#fff' }
 }
 
 export const getUsername = () => {
-  return username
+  if (document.getElementById("posterName") != null) {
+    console.log("Gotten username: " + document.getElementById("posterName").innerHTML)
+    return document.getElementById("posterName").innerHTML
+  }
+  else {
+    return "NAME HERE"
+  }
 }

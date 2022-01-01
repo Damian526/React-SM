@@ -17,10 +17,10 @@ const AlreadyLiked = () => {
 var Post = (props) => {
     return (
         <header className='header'>
-            <Picture />
+            <h1><Picture /></h1>
             <h2>
                 <Button className='btn' text='Like' onClick={props.liked === false ? LikePost : AlreadyLiked} />
-                <text style = {Stylez.caption}>{props.caption}</text>
+                <div style = {Stylez.caption}>{props.caption}</div>
             </h2>
             <h3>Posted by {props.user}</h3>
         </header>
