@@ -18,10 +18,10 @@ var Post = (props) => {
     return (
         <header className='header'>
             <h1><Picture /></h1>
-            <h2>
+            <div>
                 <Button className='btn' text='Like' onClick={props.liked === false ? LikePost : AlreadyLiked} />
                 <div style = {Stylez.caption}>{props.caption}</div>
-            </h2>
+            </div>
             <h3>Posted by {props.user}</h3>
         </header>
     )

@@ -66,15 +66,18 @@ const MapFunction = () => {
     //return (props.messages.map((v) => {return <Message key={v.id} sentBy={v.sender} text={v.message} />}))
 }
 
-const GlobalChat = (props) => {
+const GlobalChat = ({ messages }) => {
+    const msgMap = () => {
+        // messages.map((v) => console.log(v.message) )
+        messages.map((v) => (
+        <Message key={v.id} sentBy={v.sender} text={v.message} />) )
+        console.log( document.getElementById('send_msg').value )
+    }
     // { document.getElementById("textsContainer").innerHTML=  props.messages.map((v) => {return <Message key={v.id} sentBy={v.sender} text={v.message} />}) }
     return (
         <div>
             <input id='send_msg' type="text" />
-            <Button text='Send' onClick={
-                props.messages.map((v) => (<Message key={v.id} sentBy={v.sender} text={v.message} />))
-            }/>
-            <div type="text" id="textsContainer"></div>
+            <Button text='Send' onClick= { () => msgMap() } />
         </div>
     )
 }
