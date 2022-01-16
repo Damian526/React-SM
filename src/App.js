@@ -4,6 +4,7 @@ import Post from './components/Post';
 import GlobalChat from './GlobalChat';
 import * as GC from './GlobalChat.js'
 import { useState } from 'react'
+import Chat2 from './Chat2';
 
 /*
 export var setName = (name, v) => {
@@ -19,11 +20,18 @@ export var username = "Hello"
 function App() {
   const [messages1, setMessage] = useState([
     {
-      id: 1,
+      //id: 1,
       message: "This is a chat message.",
       sender: "Team SplashFace"
     }
   ])
+
+  const SendMsg = (messages2) => {
+    const id = Math.floor(Math.random() * 23455) + 1
+    console.log(getUsername() + ": "+ messages2)
+    
+    setMessage([])
+  }
 
   return (
     <div className="App">
@@ -37,11 +45,7 @@ function App() {
         <h3 id="posting_as" >
           Posting as: {" "} <div id="posterName"></div>
         </h3>
-        <h2>
-          <input type="file" id="btn" />
-          <Button text='Submit' />
-          <GlobalChat messages={messages1} />
-        </h2>
+        <Chat2 onAdd={SendMsg} />
         <h3></h3>
         <Post liked={false} user={username} caption='this is a caption' />
       </header>
@@ -69,3 +73,11 @@ export const getUsername = () => {
     return "NAME HERE"
   }
 }
+
+/* OLD CHAT STUFF
+<h2>
+  <input type="file" id="btn" />
+  <Button text='Submit' />
+  <GlobalChat messages={messages1} />
+</h2>
+*/

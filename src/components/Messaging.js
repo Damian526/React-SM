@@ -9,4 +9,9 @@ const Message = (props) => {
     )
 }
 
+
 export default Message
+/*
+export default Message2
+export default AddMsg
+*/
