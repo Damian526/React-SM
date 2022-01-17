@@ -11,6 +11,10 @@ const Chat2 = (props) => {
         setMessage('')
     }
 
+    const getMsg = () => {
+        return message
+    }
+
     return (
         <form className="task" key={props.key} onSubmit={onSubmit}>
             <div>
@@ -19,8 +23,23 @@ const Chat2 = (props) => {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)} />
             </div>
+            <div className='task'>
+                {props.chatlog.map(v => 
+                    (<div key={v.messageId} style={Stylez.caption1}> {"\n" + v.sender + ": " + v.message} </div>) ) }
+            </div>
         </form>
     )
 }
 
 export default Chat2
+
+const Stylez = {
+    "caption1": { color: 'black' },
+    "caption": { color: 'white' },
+    "hashtag": { color: 'steelblue' },
+    "like": { color: 'red' },
+    "unlike": { color: 'white' },
+    "textbox": { height: '20px' },
+    "chatbox": { color: 'black', backgroundColor: '#fff' }
+  }
+  
