@@ -45,9 +45,14 @@ function App() {
         <h1>Hello and welcome to SplashFace!</h1>
 
         <h3>
-          <div>Enter your name: </div>
+          <div>Enter your username: </div>
           <input type="text" style={Stylez.textbox} id="name_setter" />
           <Button text='Set Name' onClick={() => GC.setText(username, GC.textField(document.getElementById("name_setter")))} />
+        </h3>
+
+        <h3>
+          <div>Set your profile picture: </div>
+          <input type="submit" style={Stylez.textbox} id="pfp-setter" onClick={() => ''} />
         </h3>
 
         <h3 id="posting_as" >
