@@ -28,17 +28,16 @@ function App() {
   ])
 
   const SendMsg = (messages2) => {
-    const id = Math.floor(Math.random() * 23455) + 1
-    console.log(getUsername() + ": "+ messages2)
-    setMessage([...messages1,
-      {
+    if (messages2.length > 0) {
+      const id = Math.floor(Math.random() * 23455) + 1
+      //console.log(getUsername() + ": "+ messages2)
+      setMessage([...messages1, {
         message: messages2,
         sender: getUsername(),
         messageId: id
-      }
-    ])
+      }])
+    }
   }
-
   return (
     <div className="App">
       <header className="App-header">

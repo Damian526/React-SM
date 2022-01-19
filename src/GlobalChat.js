@@ -3,9 +3,12 @@ import Button from "./components/Button"
 import Message from "./components/Messaging"
 
 export var setText = (oldText, newText) => {
-    let pa = document.getElementById("posterName")
-    oldText = newText
-    pa.innerHTML = oldText
+    if (newText.length > 2) {
+        let pa = document.getElementById("posterName")
+        oldText = newText
+        pa.textContent = oldText
+    }
+    else {console.log("Please enter a username")}
 }
 
 export var textField = (tf) => {
@@ -70,14 +73,14 @@ const GlobalChat = ({ messages }) => {
     const msgMap = () => {
         // messages.map((v) => console.log(v.message) )
         messages.map((v) => (
-        <Message key={v.id} sentBy={v.sender} text={v.message} />) )
-        console.log( document.getElementById('send_msg').value )
+            <Message key={v.id} sentBy={v.sender} text={v.message} />))
+        console.log(document.getElementById('send_msg').value)
     }
-    // { document.getElementById("textsContainer").innerHTML=  props.messages.map((v) => {return <Message key={v.id} sentBy={v.sender} text={v.message} />}) }
+    // { document.getElementById("textsContainer").textContent =  props.messages.map((v) => {return <Message key={v.id} sentBy={v.sender} text={v.message} />}) }
     return (
         <div>
             <input id='send_msg' type="text" />
-            <Button text='Send' onClick= { () => msgMap() } />
+            <Button text='Send' onClick={() => msgMap()} />
         </div>
     )
 }
