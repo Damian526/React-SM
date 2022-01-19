@@ -8,7 +8,18 @@ export var setText = (oldText, newText) => {
         oldText = newText
         pa.textContent = oldText
     }
-    else {console.log("Please enter a username")}
+    else {
+        console.log("Please enter a username")}
+}
+
+export var isValidUsername = (oldText, newText) => {
+    if (newText.length > 2) {
+        let pa = document.getElementById("posterName")
+        oldText = newText
+        pa.textContent = oldText
+    }
+    else {
+        console.log("Please enter a username")}
 }
 
 export var textField = (tf) => {

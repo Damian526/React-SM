@@ -3,6 +3,7 @@ import Button from './Button'
 import Picture from './Picture'
 //import LikePost from './Button'
 import './Button'
+import { useState } from 'react'
 
 const LikePost = () => {
     var Post_liked = Post.liked = true
@@ -15,9 +16,17 @@ const AlreadyLiked = () => {
 }
 
 var Post = (props) => {
+    const [post, createPost] = useState({
+        poster: "Team SplashFace",
+        image: "./favicon.ico",
+        likes: 0,
+        comments: 0,
+        id: 1
+    })
+
     return (
         <header className='header'>
-            <h1><Picture /></h1>
+            <h1><Picture source={"./favicon.ico"} /></h1>
             <div>
                 <Button className='btn' text='Like' onClick={props.liked === false ? LikePost : AlreadyLiked} />
                 <div style = {Stylez.caption}>{props.caption}</div>

@@ -1,7 +1,6 @@
 import './App.css';
 import Button from './components/Button';
 import Post from './components/Post';
-import GlobalChat from './GlobalChat';
 import * as GC from './GlobalChat.js'
 import { useState } from 'react'
 import Chat2 from './Chat2';
@@ -28,7 +27,7 @@ function App() {
   ])
 
   const SendMsg = (messages2) => {
-    if (messages2.length > 0) {
+    if (messages2.length > 0 && document.getElementById("posterName").textContent.length > 2) {
       const id = Math.floor(Math.random() * 23455) + 1
       //console.log(getUsername() + ": "+ messages2)
       setMessage([...messages1, {
@@ -38,6 +37,9 @@ function App() {
       }])
     }
   }
+
+  const [pfp, setPfp] = useState("./favicon.ico")
+// URL.createObjectURL(pfp)
   return (
     <div className="App">
       <header className="App-header">
@@ -50,10 +52,11 @@ function App() {
         </h3>
 
         <h3>
-          <div>Set your profile picture: </div>
-          <input type="submit" style={Stylez.textbox} id="pfp-setter" onClick={() => ''} />
-        </h3>
+          <div>Set your profile picture: <img id="profile-pic" src={pfp} alt={ pfp || "Image not found"}/> </div>
 
+          <input type="file" accept="image/*" style={Stylez.textbox} id="pfp-setter" onChange={(e) => setPfp(e.target.files[0]) } />
+        </h3>
+        
         <h3 id="posting_as" >
           Posting as: {" "} <div id="posterName"></div>
         </h3>

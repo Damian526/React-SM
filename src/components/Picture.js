@@ -1,9 +1,9 @@
 import icon from './icons/favicon.ico'
 
-const Picture = () => {
+const Picture = (props) => {
     return (
         <div>
-            <img src='./favicon.ico' height = {200} width= {200} alt = 'Loading....'/>
+            <img src={props.source} height = {200} width= {200} alt = 'Loading....'/>
         </div>
     )
 }
