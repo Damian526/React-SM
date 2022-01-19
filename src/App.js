@@ -14,9 +14,20 @@ export var setName = (name, v) => {
 
 export var username = "Hello"
 
+export const likePost = (p) => {
+  console.log(p.text)
+} 
 
 
 function App() {
+  const [post, createPost] = useState({
+    poster: "Team SplashFace",
+    image: "./favicon.ico",
+    likes: 0,
+    comments: 0,
+    id: 1
+  })
+
   const [messages1, setMessage] = useState([
     {
       //id: 1,
@@ -39,7 +50,7 @@ function App() {
   }
 
   const [pfp, setPfp] = useState("./favicon.ico")
-// URL.createObjectURL(pfp)
+  // URL.createObjectURL(pfp)
   return (
     <div className="App">
       <header className="App-header">
@@ -52,11 +63,11 @@ function App() {
         </h3>
 
         <h3>
-          <div>Set your profile picture: <img id="profile-pic" src={pfp} alt={ pfp || "Image not found"}/> </div>
+          <div>Set your profile picture: <img id="profile-pic" src={pfp} alt={pfp || "Image not found"} /> </div>
 
-          <input type="file" accept="image/*" style={Stylez.textbox} id="pfp-setter" onChange={(e) => setPfp(e.target.files[0]) } />
+          <input type="file" accept="image/*" style={Stylez.textbox} id="pfp-setter" onChange={(e) => setPfp(e.target.files[0])} />
         </h3>
-        
+
         <h3 id="posting_as" >
           Posting as: {" "} <div id="posterName"></div>
         </h3>
