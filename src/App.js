@@ -14,19 +14,30 @@ export var setName = (name, v) => {
 
 export var username = "Hello"
 
-export const likePost = (p) => {
-  console.log(p.text)
-} 
-
-
 function App() {
   const [post, createPost] = useState({
-    poster: "Team SplashFace",
+    user: "Team SplashFace",
     image: "./favicon.ico",
+    caption: "this is a caption",
     likes: 0,
     comments: 0,
     id: 1
   })
+
+  const likePost = (buttonId, postId) => {
+    const likeButton = document.getElementById(buttonId, postId)
+    
+    createPost({
+      user: "Team SplashFace",
+      image: "./favicon.ico",
+      caption: p.props.caption,
+      likes: p.props.likes + 1,
+      // likedBy: []
+      comments: p.props.comments,
+      // commenters: []
+      id: p.props.id
+    })
+  }
 
   const [messages1, setMessage] = useState([
     {
@@ -73,8 +84,7 @@ function App() {
         </h3>
 
         <Chat2 onAdd={SendMsg} chatlog={messages1} />
-
-        <Post liked={false} user={'@' + username} caption='this is a caption' />
+        <Post liked={false} user={'@' + post.user} image={post.image} caption={post.caption} id={post.id} />
 
       </header>
     </div>
