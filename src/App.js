@@ -38,9 +38,8 @@ function App() {
       // commenters: []
       id: fullPost.props.id
     })
-    
     return (
-      <Post liked={false} user={'@' + post.user} image={post.image} caption={post.caption} id={post.id} />
+      <Post liked={false} user={'@' + fullPost.user} image={fullPost.image} caption={fullPost.caption} id={fullPost.id} />
     )
   }
 
@@ -80,7 +79,6 @@ function App() {
 
         <h3>
           <div>Set your profile picture: <img id="profile-pic" src={pfp} alt={pfp || "Image not found"} /> </div>
-
           <input type="file" accept="image/*" style={Stylez.textbox} id="pfp-setter" onChange={(e) => setPfp(e.target.files[0])} />
         </h3>
 
@@ -89,7 +87,7 @@ function App() {
         </h3>
 
         <Chat2 onAdd={SendMsg} chatlog={messages1} />
-        <Post liked={false} user={'@' + post.user} image={post.image} caption={post.caption} id={post.id} />
+        <Post liked={false} user={'@' + post.user} image={post.image} caption={post.caption} numLikes={(post.likes)} id='1' />
 
       </header>
     </div>
