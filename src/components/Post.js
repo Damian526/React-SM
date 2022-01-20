@@ -4,13 +4,13 @@ import Picture from './Picture'
 //import LikePost from './Button'
 import './Button'
 import { useState } from 'react'
-import App from '../App.js';
+import App from '../App';
 
 
 const LikePost = () => {
     var Post_liked = Post.liked = true
     console.log("Liked")
-    return(Post_liked)
+    
 }
 
 const AlreadyLiked = () => {
@@ -18,21 +18,14 @@ const AlreadyLiked = () => {
 }
 
 var Post = (props) => {
-    const [post, createPost] = useState({
-        poster: "Team SplashFace",
-        image: "./favicon.ico",
-        likes: 0,
-        comments: 0,
-        id: 1
-    })
     var likeButton = (<Button className='btn' id="like-button" text='Like' onClick={props.liked === false ? LikePost : AlreadyLiked} />)
+    
     return (
         <header className='header'>
-            <h1><Picture source={"./favicon.ico"} /></h1>
+            <h1><Picture source={props.image} /></h1>
             <div>
                 {likeButton}
                 <div style = {Stylez.caption}>{props.caption}</div>
-                {() => likeButton.props.onClick=alert()}
             </div>
             <h3>Posted by {props.user}</h3>
         </header>
