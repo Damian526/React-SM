@@ -32,6 +32,7 @@ var Post = (props) => {
             <div>
                 {likeButton}
                 <div style = {Stylez.caption}>{props.caption}</div>
+                {() => likeButton.props.onClick=alert()}
             </div>
             <h3>Posted by {props.user}</h3>
         </header>
