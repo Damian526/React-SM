@@ -25,18 +25,23 @@ function App() {
   })
 
   const likePost = (buttonId, postId) => {
-    const likeButton = document.getElementById(buttonId, postId)
-    
+    const likeButton = document.getElementById(buttonId)
+    const fullPost = document.getElementById(postId)
+
     createPost({
       user: "Team SplashFace",
       image: "./favicon.ico",
-      caption: p.props.caption,
-      likes: p.props.likes + 1,
+      caption: fullPost.props.caption,
+      likes: fullPost.props.likes + 1,
       // likedBy: []
-      comments: p.props.comments,
+      comments: fullPost.props.comments,
       // commenters: []
-      id: p.props.id
+      id: fullPost.props.id
     })
+    
+    return (
+      <Post liked={false} user={'@' + post.user} image={post.image} caption={post.caption} id={post.id} />
+    )
   }
 
   const [messages1, setMessage] = useState([
