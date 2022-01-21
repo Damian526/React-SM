@@ -10,13 +10,12 @@ import App from '../App';
 const AlreadyLiked = () => {
     console.log("Already liked")
 }
-
+const LikePost = () => {
+    console.log("Liked")
+}
 var Post = (props) => {
-    var likes = 0
-    const LikePost = () => {
-        likes = props.numLikes + 1
-        console.log("Liked")
-    }
+    var likes = 1
+    
 
     var likeButton = (<Button className='btn' id="like-button" text='Like' onClick={props.liked === false ? LikePost : AlreadyLiked} />)
     
@@ -26,7 +25,7 @@ var Post = (props) => {
             <div>
                 {likeButton}
                 <div style = {Stylez.caption}>{props.caption}</div>
-                <div style = {Stylez.caption}>{"Likes: "} {likes}</div>
+                <div style = {Stylez.caption}>Likes: {props.numLikes}</div>
             </div>
             <h3>Posted by {props.user}</h3>
         </header>

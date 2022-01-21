@@ -27,7 +27,6 @@ function App() {
   const likePost = (buttonId, postId) => {
     const likeButton = document.getElementById(buttonId)
     const fullPost = document.getElementById(postId)
-
     createPost({
       user: "Team SplashFace",
       image: "./favicon.ico",
@@ -87,7 +86,7 @@ function App() {
         </h3>
 
         <Chat2 onAdd={SendMsg} chatlog={messages1} />
-        <Post liked={false} user={'@' + post.user} image={post.image} caption={post.caption} numLikes={(post.likes)} id='1' />
+        <Post liked={false} user={'@' + post.user} image={post.image} caption="this is a caption" numLikes={0} id={"Post-" + 1} />
 
       </header>
     </div>
