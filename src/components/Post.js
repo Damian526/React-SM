@@ -17,7 +17,7 @@ var Post = (props) => {
     var likes = 1
     
 
-    var likeButton = (<Button className='btn' id="like-button" text='Like' onClick={props.liked === false ? LikePost : AlreadyLiked} />)
+    var likeButton = (<Button className='btn' id="like-button-1" text='Like' onClick={props.liked === false ? LikePost : AlreadyLiked} />)
     
     return (
         <header className='header' id={props.id}>

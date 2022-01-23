@@ -27,6 +27,9 @@ function App() {
   const likePost = (buttonId, postId) => {
     const likeButton = document.getElementById(buttonId)
     const fullPost = document.getElementById(postId)
+
+    likeButton.onClick=console.log("EEE")
+    /*
     createPost({
       user: "Team SplashFace",
       image: "./favicon.ico",
@@ -40,6 +43,7 @@ function App() {
     return (
       <Post liked={false} user={'@' + fullPost.user} image={fullPost.image} caption={fullPost.caption} id={fullPost.id} />
     )
+    */
   }
 
   const [messages1, setMessage] = useState([
@@ -108,7 +112,7 @@ export const Stylez = {
 export const getUsername = () => {
   if (document.getElementById("posterName") != null) {
     console.log("Gotten username: " + document.getElementById("posterName").textContent)
-    return document.getElementById("posterName").innerHTML
+    return document.getElementById("posterName").textContent
   }
   else {
     return "NAME HERE"
