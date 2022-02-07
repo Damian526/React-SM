@@ -9,7 +9,8 @@ export var setText = (oldText, newText) => {
         pa.textContent = oldText
     }
     else {
-        console.log("Please enter a username")}
+        console.log("Please enter a username")
+    }
 }
 
 export var isValidUsername = (oldText, newText) => {
@@ -19,7 +20,8 @@ export var isValidUsername = (oldText, newText) => {
         pa.textContent = oldText
     }
     else {
-        console.log("Please enter a username")}
+        console.log("Please enter a username")
+    }
 }
 
 export var textField = (tf) => {
@@ -37,7 +39,10 @@ export function log(s) {
 }
 
 let allMessages = [
-    { name: "System: ", text: "This is the chat" }
+    {
+        name: "System: ",
+        text: "This is the chat"
+    }
 ]
 
 function getMessages(array) {
